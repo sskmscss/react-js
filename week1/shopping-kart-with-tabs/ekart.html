@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eKart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header, footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 2em 0;
+            font-size: 2em;
+        }
+        .tabs {
+            display: flex;
+            background-color: #f1f1f1;
+            padding: 10px;
+            justify-content: left;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-right: 10px;
+            color: #333;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+        }
+        .tab:hover {
+            color: #4CAF50;
+        }
+        .tab.active {
+            border-bottom: 2px solid #4CAF50;
+            color: #4CAF50;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border-top: 1px solid #ccc;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .items {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .item {
+            flex: 1 1 22%;
+            box-sizing: border-box;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .item img {
+            max-width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+        @media (max-width: 1024px) {
+            .item {
+                flex: 1 1 45%;
+            }
+        }
+        @media (max-width: 768px) {
+            .item {
+                flex: 1 1 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">Welcome to eKart</div>
+    <div class="tabs">
+        <a class="tab" onclick="showTab('animals')">Animals</a>
+        <a class="tab" onclick="showTab('fruits')">Fruits</a>
+        <a class="tab" onclick="showTab('vegetables')">Vegetables</a>
+        <a class="tab" onclick="showTab('pulses')">Pulses</a>
+    </div>
+    <div id="animals" class="tab-content">
+        <div class="items">
+            <div class="item">
+                <img src="images/animals/lion.png" alt="Lion">
+                <div>Lion</div>
+            </div>
+            <div class="item">
+                <img src="images/animals/tiger.png" alt="Tiger">
+                <div>Tiger</div>
+            </div>
+            <div class="item">
+                <img src="images/animals/elephant.png" alt="Elephant">
+                <div>Elephant</div>
+            </div>
+            <div class="item">
+                <img src="images/animals/giraffe.png" alt="Giraffe">
+                <div>Giraffe</div>
+            </div>
+        </div>
+    </div>
+    <div id="fruits" class="tab-content">
+        <div class="items">
+            <div class="item">
+                <img src="images/fruits/apple.png" alt="Apple">
+                <div>Apple</div>
+            </div>
+            <div class="item">
+                <img src="images/fruits/banana.png" alt="Banana">
+                <div>Banana</div>
+            </div>
+            <div class="item">
+                <img src="images/fruits/orange.png" alt="Orange">
+                <div>Orange</div>
+            </div>
+            <div class="item">
+                <img src="images/fruits/grapes.png" alt="Grapes">
+                <div>Grapes</div>
+            </div>
+        </div>
+    </div>
+    <div id="vegetables" class="tab-content">
+        <div class="items">
+            <div class="item">
+                <img src="images/vegetables/carrot.png" alt="Carrot">
+                <div>Carrot</div>
+            </div>
+            <div class="item">
+                <img src="images/vegetables/brocoli.png" alt="Broccoli">
+                <div>Broccoli</div>
+            </div>
+            <div class="item">
+                <img src="images/vegetables/spinach.png" alt="Spinach">
+                <div>Spinach</div>
+            </div>
+            <div class="item">
+                <img src="images/vegetables/potato.png" alt="Potato">
+                <div>Potato</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pulses" class="tab-content">
+        <div class="items">
+            <div class="item">
+                <img src="images/pulses/product1.png" alt="Carrot">
+                <div>Pulse 1</div>
+            </div>
+            <div class="item">
+                <img src="images/pulses/product2.jpg" alt="Broccoli">
+                <div>Pulse 2</div>
+            </div>
+            <div class="item">
+                <img src="images/pulses/product3.jpg" alt="Spinach">
+                <div>Pulse 3</div>
+            </div>
+            <div class="item">
+                <img src="images/pulses/product4.jpg" alt="Potato">
+                <div>Pulse 4</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            var contents = document.querySelectorAll('.tab-content');
+            contents.forEach(function(content) {
+                content.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+
+            var tabs = document.querySelectorAll('.tab');
+            tabs.forEach(function(tab) {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+        showTab("animals")
+    </script>
+</body>
+</html>
